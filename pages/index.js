@@ -40,7 +40,7 @@ export async function getStaticProps() {
 
   client.close();
 
-  fetch("/api/meetups");
+  await fetch("/api/meetups");
   return {
     props: {
       meetups: meetups.map((meetups) => ({
