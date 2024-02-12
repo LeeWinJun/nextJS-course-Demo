@@ -26,7 +26,8 @@ export async function getStaticPaths() {
 
   client.close();
   return {
-    fallback: false,
+    //blocking은 사용자가 아무것도 볼 수 없고 완성된 페이지만 볼 수 있다.
+    fallback: 'blocking',
     paths: meetups.map((meetups) => ({
       //이런 식으로 코드를 적으면 몽고DB에서 자동으로 생성된 id의 값을 얻는다
       params: { meetupId: meetups._id.toString() },
